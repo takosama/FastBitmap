@@ -1,0 +1,17 @@
+Program.csにて
+
+64*64の画像の時
+SIMDParallelで4.1us
+通常で        9.7us
+
+1280*720の画像の時
+SIMDParallelで360.5us
+通常で        1091.7us
+
+1920*1080の画像の時
+SIMDParallelで1.14ms
+通常で        1.795ms
+
+でした
+
+core i7-7200u
