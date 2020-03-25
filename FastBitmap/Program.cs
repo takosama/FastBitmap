@@ -37,10 +37,11 @@ public class Bentimark
         Graphics g = Graphics.FromImage(bmp);
 
         g.FillRectangle(Brushes.White, new Rectangle(0, 0, bmp.Width, bmp.Height));
+     
+        
         
     }
 }
-
 unsafe class FastBitmap
 {
     BitmapData _bitmapData = null;
@@ -69,10 +70,10 @@ unsafe class FastBitmap
         this.height = bmp.Height;
     }
 
-    public Bitmap End()
+    public void End()
     {
         this._bmp.UnlockBits(this._bitmapData);
-        return this._bmp;
+
     }
 
 
@@ -99,17 +100,15 @@ unsafe class FastBitmap
             Vector256<uint> vector = Vector256.Create(color, color, color, color, color, color, color, color);
             int xEnd = this.width / 8;
 
-
-
             Parallel.For(0, this.height, (int y) =>
             {
-                    var ptr = (uint*)(this._ptr + (this._stride * y));
-                    for (int x = 0; x < xEnd; x++)
-                    {
-                        Avx.Store(ptr, vector);
-                        //*(ptr) = color;
-                        ptr += 8;
-                    }
+                var ptr = (uint*)(this._ptr + (this._stride * y));
+                for (int x = 0; x < xEnd; x++)
+                {
+                    Avx.Store(ptr, vector);
+                    //*(ptr) = color;
+                    ptr += 8;
+                }
             });
         }
         else if (this.width % 4 == 0)
