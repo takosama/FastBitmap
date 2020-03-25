@@ -1,10 +1,15 @@
-﻿using System;
+﻿//お布施はこちらへ　学生　金欠です　https://www.amazon.jp/hz/wishlist/ls/IMC1G88FCO7X?ref_=wl_share
+//takosama.312@gmail.comもしくは @rin_sns4に利用報告くれると嬉しいですが自由に使ってください
+//くそコードなので責任取れません　自己責任で使ってください　
+
+using System;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.Runtime.Intrinsics;
 using System.Runtime.Intrinsics.X86;
 using System.Threading.Tasks;
 using BenchmarkDotNet;
+
 
 public class Program
 {
